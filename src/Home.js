@@ -12,7 +12,7 @@ function buildUrl(value) {
     : `${process.env.REACT_APP_API_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`;
 }
 
-function Home() {
+function Home({ addToFavorite, favorites }) {
   const classes = useStyles();
   const [params, setParams] = useSearchParams();
   const [value, setValue] = useState(params.get("q") || "");
@@ -20,8 +20,6 @@ function Home() {
   // useEffect(() => {
   //   fetchMovies();
   // });
-
-  console.log(process.env.REACT_APP_API_KEY);
 
   const onChange = (event) => {
     const q = event.target.value;
@@ -53,9 +51,6 @@ function Home() {
 
   console.log(mov);*/
 
-  console.log("Data");
-  console.log(data);
-
   /*const movies = data.movies.filter((movie) =>
     movie.title.match(new RegExp(value, "i"))
   );*/
@@ -66,7 +61,12 @@ function Home() {
       {error && <div className={classes.error}>{error}</div>}
       {(isLoading || isFetching) && <div>Loading movies...</div>}
       {!isLoading && !error && (
-        <VerticalList className={classes.list} data={data?.results} />
+        <VerticalList
+          className={classes.list}
+          data={data?.results}
+          addToFavorite={addToFavorite}
+          favorites={favorites}
+        />
       )}
     </div>
   );

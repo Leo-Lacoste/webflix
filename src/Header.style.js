@@ -29,6 +29,9 @@ const useStyles = createUseStyles({
     borderWidth: 2,
     borderColor: "white",
     borderRadius: "5px",
+    paddingLeft: 8,
+    paddingRight: 8,
+    marginLeft: 8,
   },
 });
 

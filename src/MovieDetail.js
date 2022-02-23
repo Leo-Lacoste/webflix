@@ -6,15 +6,21 @@ import HorizontalList from "./HorizontalList";
 import BackButton from "./BackButton";
 import useStyles from "./MovieDetail.style";
 import moment, { duration } from "moment";
-import Chip from "./Chip";
 import Genre from "./Genre";
 import { useQuery } from "react-query";
 
-function buildUrl(idMovie) {
+function buildUrlDetailMovie(idMovie) {
   return `${process.env.REACT_APP_API_URL}/movie/${idMovie}?api_key=${process.env.REACT_APP_API_KEY}`;
 }
 
-function MovieDetail() {
+function buildUrlGenres() {
+  return `${process.env.REACT_APP_API_URL}/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}`;
+}
+function buildUrlSimilar() {
+  return `${process.env.REACT_APP_API_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`;
+}
+
+function MovieDetail({ addToFavorite, favorites }) {
   const classes = useStyles();
   const idMovieObject = useParams();
   const idMovie = idMovieObject.id;
@@ -22,16 +28,31 @@ function MovieDetail() {
 
   const { data, isLoading, isFetching, error } = useQuery(
     ["movie", idMovie],
-    () => fetch(buildUrl(idMovie)).then((response) => response.json())
+    () =>
+      fetch(buildUrlDetailMovie(idMovie)).then((response) => response.json())
   );
-  if (isLoading) {
-    console.log("loading" + data);
-  }
-  if (isFetching) {
-    console.log("fetching" + data);
-  }
 
-  console.log(data);
+  const {
+    data: genreList,
+    isLoading: loadingGenreList,
+    isFetching: fetchingGenreList,
+    error: errorGenreList,
+  } = useQuery("genreList", () =>
+    fetch(buildUrlGenres()).then((response) => response.json())
+  );
+
+  const {
+    data: filmPopular,
+    isLoading: loadingFilmPopular,
+    isFetching: fetchingFilmPopular,
+    error: errorFilmPopular,
+  } = useQuery("filmPopular", () =>
+    fetch(buildUrlSimilar()).then((response) => response.json())
+  );
+
+  console.log(filmPopular);
+
+  console.log(genreList);
 
   //console.log(mov);
   // if (!isLoading && !isFetching) console.log(mov);
@@ -51,9 +72,18 @@ function MovieDetail() {
   )[0];*/
 
   //if (!currentMovie) return <Navigate to="/" replace={true} />;
+  let imageURL;
+  let dateSortie;
+  if (!isLoading && !error) {
+    imageURL = `https://image.tmdb.org/t/p/w154/${data.poster_path}`;
+    dateSortie = moment(data.release_date, "YYYY-MM-DD").toDate();
+  }
+  //
 
-  //const imageURL = `https://image.tmdb.org/t/p/w154/${currentMovie.poster_path}`;
-
+  let moviesLike;
+  /*if (!loadingFilmPopular && !errorFilmPopular && isLoading && !error) {
+    moviesLike = filmPopular.results.filter((movie) => {data.genre});
+  }*/
   /*const moviesLike = data.movies.filter(
     (movie) =>
       currentMovie.genre_ids.some((genre) => movie.genre_ids.includes(genre)) &&
@@ -89,8 +119,6 @@ function MovieDetail() {
     "Décembre",
   ];
 
-  //var dateSortie = moment(currentMovie.release_date, "YYYY-MM-DD").toDate();
-
   return (
     <div className={classes.root}>
       <div className={classes.btnBack}>
@@ -101,9 +129,35 @@ function MovieDetail() {
       {!isLoading && !error && (
         <div className={classes.content}>
           <div className={classes.mainInfo}>
+            <div className={classes.posterFilmDiv}>
+              <img
+                className={classes.posterFilm}
+                src={imageURL}
+                alt={`imageFilm${data.title}`}
+              />
+            </div>
             <div className={classes.mainInfoText}>
               <h2>{data.title}</h2>
+              <p>
+                Sortie le {days[dateSortie.getDay()]} {dateSortie.getDate()}{" "}
+                {months[dateSortie.getMonth()]} {dateSortie.getFullYear()}
+              </p>
+              <div className={classes.genreList}>
+                {data.genres.map((genre) => {
+                  return (
+                    <div key={genre.id}>
+                      <Genre label={genre.name} />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
+          </div>
+          <div>
+            <RatingMovie rating={data.vote_average} nbVotes={data.vote_count} />
+            <Description descriptionFilm={data.overview} />
+            {/*<HorizontalList data={moviesLike} addToFavorite={addToFavorite}
+        favorites={favorites} />*/}
           </div>
         </div>
       )}
