@@ -20,7 +20,7 @@ function buildUrlSimilar() {
   return `${process.env.REACT_APP_API_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`;
 }
 
-function MovieDetail({ addToFavorite, favorites }) {
+function MovieDetail() {
   const classes = useStyles();
   const idMovieObject = useParams();
   const idMovie = idMovieObject.id;
@@ -156,8 +156,7 @@ function MovieDetail({ addToFavorite, favorites }) {
           <div>
             <RatingMovie rating={data.vote_average} nbVotes={data.vote_count} />
             <Description descriptionFilm={data.overview} />
-            {/*<HorizontalList data={moviesLike} addToFavorite={addToFavorite}
-        favorites={favorites} />*/}
+            {/*<HorizontalList data={moviesLike} />*/}
           </div>
         </div>
       )}

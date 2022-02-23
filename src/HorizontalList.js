@@ -4,7 +4,7 @@ import useStyles from "./HorizontalList.style";
 import Carousel from "react-elastic-carousel";
 import "./HorizontalList.css";
 
-function HorizontalList({ data, addToFavorite, favorites }) {
+function HorizontalList({ data }) {
   const classes = useStyles();
 
   const breakPoints = [
@@ -20,11 +20,7 @@ function HorizontalList({ data, addToFavorite, favorites }) {
         {data.map((entry) => (
           <div key={entry.id} className={classes.item}>
             <Link to={`/movies/${entry.id}`} className={classes.link}>
-              <MovieCard
-                {...entry}
-                addToFavorite={addToFavorite}
-                favorites={favorites}
-              />
+              <MovieCard {...entry} />
             </Link>
           </div>
         ))}
