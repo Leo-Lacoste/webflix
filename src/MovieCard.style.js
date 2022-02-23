@@ -12,10 +12,11 @@ const useStyles = createUseStyles({
   },
   title: {
     padding: 8,
-    color: "white",
+    color: "black",
     fontSize: 12,
-    textShadow: "1px 1px 6px black",
+    //textShadow: "1px 1px 6px black",
     wordBreak: "break-word",
+    backgroundColor: "rgba(209, 216, 222, 0.7)",
   },
 });
 

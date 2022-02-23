@@ -15,7 +15,9 @@
       "original_language": "en",
       "original_title": "The King's Man",
       "popularity": 922.484,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "125",
+      "director": "Matthew Vaughn"
     },
     {
       "adult": false,
@@ -32,7 +34,9 @@
       "vote_average": 6.9,
       "vote_count": 13,
       "popularity": 57.476,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "95",
+      "director": "Steven Soderbergh"
     },
     {
       "overview": "Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
@@ -49,7 +53,9 @@
       "vote_average": 8.4,
       "id": 634649,
       "popularity": 9972.882,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "102",
+      "director": "Jon Watts"
     },
     {
       "adult": false,
@@ -66,7 +72,9 @@
       "vote_average": 6.2,
       "vote_count": 16,
       "popularity": 60.246,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "100",
+      "director": "Ian Knox"
     },
     {
       "original_language": "en",
@@ -83,7 +91,9 @@
       "genre_ids": [35, 10749, 10402],
       "title": "Marry Me",
       "popularity": 387.013,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "115",
+      "director": "Kat Coiro"
     },
     {
       "adult": false,
@@ -100,7 +110,8 @@
       "release_date": "2021-11-24",
       "id": 644495,
       "popularity": 1182.306,
-      "media_type": "movie"
+      "media_type": "movie",
+      "director": "Ridley Scott"
     },
     {
       "video": false,
@@ -117,7 +128,9 @@
       "original_title": "Nightmare Alley",
       "poster_path": "/680klE0dIreQQOyWKFgNnCAJtws.jpg",
       "popularity": 350.912,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "120",
+      "director": "Guillermo del Toro"
     },
     {
       "release_date": "2022-02-10",
@@ -134,7 +147,9 @@
       "original_title": "I Want You Back",
       "overview": "Peter and Emma thought they were on the precipice of life’s biggest moments – marriage, kids, and houses in the suburbs – until their respective partners dumped them. Horrified to learn that the loves of their lives have already moved on, Peter and Emma hatch a hilarious plan to win back their exes with unexpected results.",
       "popularity": 37.739,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "131",
+      "director": "Jason Orley"
     },
     {
       "original_language": "pl",
@@ -151,7 +166,9 @@
       "genre_ids": [35, 18, 10749],
       "title": "Into The Wind",
       "popularity": 28.93,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "119",
+      "director": "Kristoffer Karlsson Rus"
     },
     {
       "original_language": "en",
@@ -168,7 +185,9 @@
       "genre_ids": [9648, 80, 18],
       "title": "Death on the Nile",
       "popularity": 255.85,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "127",
+      "director": "Kenneth Branagh"
     },
     {
       "original_language": "en",
@@ -185,7 +204,9 @@
       "genre_ids": [16, 35, 10751, 14],
       "title": "Encanto",
       "popularity": 3724.159,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "154",
+      "director": "Byron Howard,"
     },
     {
       "release_date": "2021-11-11",
@@ -202,7 +223,9 @@
       "adult": false,
       "overview": "When a single mom and her two kids arrive in a small town, they begin to discover their connection to the original Ghostbusters and the secret legacy their grandfather left behind.",
       "popularity": 2000.451,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "120",
+      "director": "Jason Reitman"
     },
     {
       "video": false,
@@ -219,7 +242,8 @@
       "poster_path": "/z8VpsTdIjBhdeGeNEsHFwz6MJXp.jpg",
       "title": "Redeeming Love",
       "popularity": 51.38,
-      "media_type": "movie"
+      "media_type": "movie",
+      "director": "D. J. Caruso"
     },
     {
       "overview": "A group of top female agents from American, British, Chinese, Columbian and German  government agencies are drawn together to try and stop an organization from acquiring a deadly weapon to send the world into chaos.",
@@ -236,7 +260,9 @@
       "video": false,
       "vote_average": 6.2,
       "popularity": 3111.312,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "98",
+      "director": "Simon Kinberg"
     },
     {
       "overview": "Raquel's longtime crush on her next-door neighbor turns into something more when he starts developing feelings for her, despite his family's objections.",
@@ -253,7 +279,9 @@
       "vote_average": 8.0,
       "id": 818647,
       "popularity": 3158.757,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "143",
+      "director": "Marçal Forès"
     },
     {
       "adult": false,
@@ -270,7 +298,9 @@
       "vote_average": 0.0,
       "vote_count": 0,
       "popularity": 41.779,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "88",
+      "director": "Josephine Decker "
     },
     {
       "original_language": "en",
@@ -287,7 +317,8 @@
       "genre_ids": [12, 10751],
       "title": "The Wolf and the Lion",
       "popularity": 63.371,
-      "media_type": "movie"
+      "media_type": "movie",
+      "director": "Gilles de Maistre"
     },
     {
       "original_language": "en",
@@ -304,7 +335,9 @@
       "genre_ids": [28, 80, 18],
       "title": "The Batman",
       "popularity": 231.348,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "102",
+      "director": "Matt Reeves"
     },
     {
       "video": false,
@@ -321,7 +354,9 @@
       "poster_path": "/nMO3QWa6liTwNWhVICkjzaYfPoH.jpg",
       "release_date": "2022-02-10",
       "popularity": 573.403,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "98",
+      "director": "Ruben Fleischer"
     },
     {
       "overview": "After Jodi Kreyman gains popularity, her miscommunications start causing rifts with those around her and now she really needs to \"stand tall\".",
@@ -338,7 +373,9 @@
       "vote_average": 0.0,
       "id": 772272,
       "popularity": 51.013,
-      "media_type": "movie"
+      "media_type": "movie",
+      "duration": "113",
+      "director": "Emily Ting"
     }
   ],
   "genres": {

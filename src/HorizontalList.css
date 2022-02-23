@@ -1,0 +1,26 @@
+.rec.rec-carousel-wrapper {
+  padding: 5px;
+  width: auto;
+}
+
+.rec.rec-arrow {
+  background-color: rgba(201, 44, 44, 0.514);
+  color: white;
+  border-color: white;
+  border: solid;
+  border-width: 2;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  line-height: 30px;
+}
+
+.rec.rec-arrow-left:hover:enabled,
+.rec.rec-arrow-left:focus:enabled {
+  background-color: rgba(201, 44, 44, 0.829);
+}
+
+.rec.rec-arrow-right:hover:enabled,
+.rec.rec-arrow-right:focus:enabled {
+  background-color: rgba(201, 44, 44, 0.829);
+}

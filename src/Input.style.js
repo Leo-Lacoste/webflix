@@ -7,6 +7,7 @@ const useStyles = createUseStyles({
     height: 32,
     fontSize: 20,
     fontWeight: 700,
+    textAlign: "center",
     borderRadius: 0,
     "&:focus": {
       outline: "none",

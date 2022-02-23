@@ -21,6 +21,15 @@ const useStyles = createUseStyles({
     margin: 0,
     fontSize: 20,
   },
+  link: {
+    textDecoration: "none",
+    backgroundColor: "white",
+    color: "black",
+    border: "solid",
+    borderWidth: 2,
+    borderColor: "white",
+    borderRadius: "5px",
+  },
 });
 
 export default useStyles;
