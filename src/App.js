@@ -16,14 +16,16 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { favoritesSlice } from "./slices";
+import createSagaMiddleware from "redux-saga";
+import { favoritesSlice, moviesSlice } from "./slices";
+import { rootSaga } from "./sagas";
 
 import Header from "./Header";
 import Home from "./Home";
 import MovieDetail from "./MovieDetail";
 import "./App.css";
 
-const queryClient = new QueryClient();
+//const queryClient = new QueryClient();
 
 const persistConfig = {
   key: "root",
@@ -34,18 +36,25 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     favorites: favoritesSlice.reducer,
+    movies: moviesSlice.reducer,
   })
 );
 
+const sagaMiddleware = createSagaMiddleware();
+
 const store = configureStore({
   reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
+  middleware: (getDefaultMiddleware) => [
+    ...getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+    sagaMiddleware,
+  ],
 });
+
+sagaMiddleware.run(rootSaga);
 
 const persistor = persistStore(store);
 
@@ -60,20 +69,15 @@ function App() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        {" "}
-        <QueryClientProvider client={queryClient}>
-          <BrowserRouter>
-            <div className="App">
-              <Header />
-              <main className="AppMain">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/movies/:id" element={<MovieDetail />} />
-                </Routes>
-              </main>
-            </div>
-          </BrowserRouter>
-        </QueryClientProvider>
+        <BrowserRouter>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/movies/:id" element={<MovieDetail />} />
+            </Routes>
+          </main>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
   );

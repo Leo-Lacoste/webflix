@@ -1,9 +1,9 @@
 import data from "./data.json";
 import useStyles from "./Genre.style";
 
-function Genre({ label }) {
+function Genre({ id }) {
   const classes = useStyles();
-  //const label = data.genres[id];
+  const label = data.genres[id];
   if (!label) return null;
   return (
     <div data-testid="genre" className={classes.root}>

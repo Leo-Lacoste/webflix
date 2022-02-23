@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "react-query";
 import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Input from "./Input";
 import VerticalList from "./VerticalList";
@@ -35,21 +36,17 @@ function Home() {
     setValue(params.get("q") || "");
   }, [params]);
 
-  const { data, isLoading, isFetching, error } = useQuery(
+  /*const { data, isLoading, isFetching, error } = useQuery(
     ["movies", value],
     () => fetch(buildUrl(value)).then((response) => response.json())
-  );
+  );*/
 
-  /*const id = 634649;
-  const { mov, isLoadingMov, isFetchingMov, errorMov } = useQuery(
-    ["movie", id],
-    () =>
-      fetch(
-        "https://api.themoviedb.org/3/movie/634649?api_key=aeeca3eb934c595a32cbd53a16f76f64"
-      ).then((response) => response.json())
-  );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch({ type: "FETCH_MOVIES" });
+  }, [dispatch]);
 
-  console.log(mov);*/
+  const movies = useSelector((state) => state.movies);
 
   /*const movies = data.movies.filter((movie) =>
     movie.title.match(new RegExp(value, "i"))
@@ -58,11 +55,7 @@ function Home() {
   return (
     <div className={classes.root}>
       <Input value={value} onChange={onChange} />
-      {error && <div className={classes.error}>{error}</div>}
-      {(isLoading || isFetching) && <div>Loading movies...</div>}
-      {!isLoading && !error && (
-        <VerticalList className={classes.list} data={data?.results} />
-      )}
+      <VerticalList className={classes.list} data={movies} />
     </div>
   );
 }
